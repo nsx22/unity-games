@@ -38,7 +38,8 @@ layout: default
       <header>
         {% if page.title %}<h1 id="page-title" class="page__title p-name" itemprop="headline">
           <a href="{{ page.url | absolute_url }}" class="u-url" itemprop="url">{{ page.title | markdownify | remove: "
-            <p>" | remove: "</p>" }}</a>
+            <p>" | remove: "</p>" }}
+          </a>
         </h1>{% endif %}
         {% include page__meta.html %}
       </header>
@@ -57,7 +58,7 @@ layout: default
         </aside>
         {% endif %}
         {% if page.unity_dir %}
-          {% include page__unity.html %}
+        {% include page__unity.html %}
         {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{
