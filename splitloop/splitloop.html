@@ -82,12 +82,13 @@
     <!-- Main -->
     <div id="main-wrapper">
       <div class="container">
-        <h2>Splitloop</h2>
+        <h2 style="margin: 0;">Splitloop</h2>
+        <caption>v0.95 (11/25/23) - By Aryan Sharma</caption>
         <div class="row gtr-200">
           <div class="col-4 col-12-medium">
-            <div id="unity-container" class="unity-desktop" style="border-radius: 10px;">
+            <div id="unity-container" class="unity-desktop" style="border-radius: 10px; height: 480px;">
               <canvas id="unity-canvas" width=854 height=480 tabindex="-1"
-                style="border-top-left-radius: 10px; border-top-right-radius: 10px;"></canvas>
+                style="border-radius: 10px"></canvas>
               <button id="unity-load-button">Play</button>
               <div id="unity-loading-bar">
                 <div id="unity-logo"></div>
@@ -96,10 +97,6 @@
                 </div>
               </div>
               <div id="unity-warning"> </div>
-              <div id="unity-footer">
-                <div id="unity-fullscreen-button"></div>
-                <div id="unity-build-title">Splitloop</div>
-              </div>
             </div>
             <br>
             <br>
@@ -130,7 +127,7 @@
 
             <!-- Links -->
             <section class="widget links">
-              <h3>Contact</h3>
+              <h3 style="margin: 0;">Contact</h3>
               <ul class="style2">
                 <li><a href="https://github.com/savagegod22">GitHub</a></li>
                 <li><a href="https://savagegod22.itch.io/">Itch.io</a></li>
@@ -235,25 +232,27 @@
 
     } else {
       // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-      devicePixelRatio=1.5;
+      devicePixelRatio = 1.5;
       canvas.style.width = "854px";
       canvas.style.height = "480px";
-      
+
     }
 
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
     script.src = loaderUrl;
-    
+
     loadButton.addEventListener("click", function () {
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
-        fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
-        };
+        if (fullscreenButton != null) {
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }
 
       }).catch((message) => {
         alert(message);
