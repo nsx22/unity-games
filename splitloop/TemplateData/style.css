@@ -1,9 +1,16 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
 
 body {
     padding: 0;
     margin: 0;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 #unity-container {
@@ -15,8 +22,7 @@ body {
 
 #unity-container.unity-desktop {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     border-top-left-radius: 8;
     border-top-right-radius: 8;
 }
